@@ -7,32 +7,33 @@ function personalityTestHandler() {
   debugger;
 
   // read inputs from user
-  const likesPuppies = alert(`Do you like puppies?`);
-  const eatsVegetables = alert(`Do you eat vegetables?`);
-  const sleepsEnough = alert('Do you sleep enough?');
+  const likesPuppies = confirm(`Do you like puppies? \nyes: "ok" \nno: "cancel"`);
+  const eatsVegetables = confirm(`Do you like to eat vegetables? \nyes: "ok" \nno: "cancel"`);
+  const sleepsEnough = confirm('Do you sleep enough? \nyes: "ok" \nno: "cancel"');
 
   // before moving on ... type check!
-  if (typeof likesPuppies !== 'Boolean') { throw new TypeError(); }
-  if (typeof eatsVegetables !== 'Boolean') { throw new TypeError(); }
-  if (typeof sleepsEnough !== 'Boolean') { throw new TypeError(); }
+  if (typeof likesPuppies !== 'boolean') { throw new TypeError(); }
+  if (typeof eatsVegetables !== 'boolean') { throw new TypeError(); }
+  if (typeof sleepsEnough !== 'boolean') { throw new TypeError(); }
 
   // perform core logic
-  const isHealthy = eatsVegetables || sleepsEnough;
-  const isAGoodPerson = likesPuppies && isHeathy;
-  const adjective = isAGoodPerson ? 'good' : 'bad';
-  const message = `You are a ``${adjective}`` person`;
+  const isHealthy = eatsVegetables || sleepsEnough ? true : false;
+  const isAGoodPerson = likesPuppies && isHealthy ? true : false;
+  const adjective = isAGoodPerson ? 'good' : isHealthy ? 'healthy' : likesPuppies ? 'dog' : 'bad';
+  const message = `You are a ${adjective} person`;
 
   // alert result for the user
   alert(message);
 
   // log action for the developer
   console.log('\n--- personality test ---');
-  console.log('likesPuppies:', typeOf likesPuppies, '\n', likesPuppies);
-  console.log('eatsVegetables:', typeOf eatsVegetables, '\n', eatsVegetables);
-  console.log('sleepsEnough:', typeOf sleepsEnough, '\n', sleepsEnough);
-  console.log('isHealthy:', typeOf isHealthy, '\n', isHealthy);
-  console.log('isAGoodPerson:', typeOf isAGoodPerson, '\n', isAGoodPerson);
-  console.log('adjective:', typeOf adjective, '\n', adjective);
-  console.log('message:', typeOf message, '\n', message);
+  console.log('likesPuppies:', typeof likesPuppies, '\n', likesPuppies);
+  console.log('eatsVegetables:', typeof eatsVegetables, '\n', eatsVegetables);
+  console.log('sleepsEnough:', typeof sleepsEnough, '\n', sleepsEnough);
+  console.log('isHealthy:', typeof isHealthy, '\n', isHealthy);
+  console.log('isAGoodPerson:', typeof isAGoodPerson, '\n', isAGoodPerson);
+  console.log('adjective:', typeof adjective, '\n', adjective);
+  console.log('message:', typeof message, '\n', message);
 
 }
+
